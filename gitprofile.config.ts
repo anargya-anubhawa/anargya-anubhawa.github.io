@@ -48,6 +48,14 @@ const CONFIG = {
             'https://i.ibb.co.com/2gbWtbF/KazeGX.jpg',
           link: 'https://api-anargya.bohr.io/',
         },
+        {
+          title: 'Mendoan Lelet',
+          description:
+            'Mendoan Lelet untuk tugas PKWU dan Bahasa Indonesia',
+          imageUrl:
+            'https://radarbanyumas.disway.id/upload/b6b14c5026edb80e1c2a076bd2d7e7b2.jpg',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLScd2ObMl4YEO9W1GmIpl9x7nNKHWclPqoGkP1y4xBNfOU9C8Q/viewform?usp=sf_link',
+        },
       ],
     },
   },
