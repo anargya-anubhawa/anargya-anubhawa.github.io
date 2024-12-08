@@ -48,19 +48,12 @@ const CONFIG = {
             'https://i.ibb.co.com/2gbWtbF/KazeGX.jpg',
           link: 'https://api-anargya.bohr.io/',
         },
-        {
-          title: 'Mendoan Lelet',
-          description:
-            'Mendoan Lelet untuk tugas PKWU dan Bahasa Indonesia',
-          imageUrl:
-            'https://radarbanyumas.disway.id/upload/b6b14c5026edb80e1c2a076bd2d7e7b2.jpg',
-          link: 'https://docs.google.com/forms/d/e/1FAIpQLScd2ObMl4YEO9W1GmIpl9x7nNKHWclPqoGkP1y4xBNfOU9C8Q/viewform?usp=sf_link',
-        },
+
       ],
     },
   },
   seo: {
-    title: '@anargya-anubhawa',
+    title: 'anargya-anubhawa',
     description: '',
     imageURL: '',
   },
@@ -81,14 +74,14 @@ const CONFIG = {
     dev: '',
     stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
-    telegram: 'kaze000',
+    telegram: 'anargya_anubhawa',
     website: 'https://blog.anargya.my.id',
     phone: '6285174177427',
     email: 'anargya.anubhawa98@gmail.com',
   },
   resume: {
     fileUrl:
-      '', // Empty fileUrl will hide the `Download Resume` button.
+      'https://blog.anargya.my.id', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'Fork kodingan orang',
@@ -98,7 +91,7 @@ const CONFIG = {
   ],
   experiences: [
     {
-      company: 'TerraShine Server',
+      company: 'TerraShine Terraria Server',
       position: 'Owner',
       from: 'September 2020',
       to: 'Present',
