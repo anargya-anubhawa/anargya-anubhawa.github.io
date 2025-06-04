@@ -37,11 +37,11 @@ function loadPage(page) {
   });
 
   window.addEventListener("popstate", () => {
-    const page = location.hash.substring(1) || "blog";
+    const page = location.hash.substring(1) || "about";
     loadPage(page);
   });
 
   // Load halaman awal berdasarkan hash atau default about
-  const initialPage = location.hash.substring(1) || "blog";
+  const initialPage = location.hash.substring(1) || "about";
   loadPage(initialPage);
 });
