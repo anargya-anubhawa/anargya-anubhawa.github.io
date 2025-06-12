@@ -1,7 +1,7 @@
 'use strict';
 
 window.addEventListener("DOMContentLoaded", () => {
-  const mainContent = document.getElementById("main-content");
+  const mainContent = document.getElementById("main-content-inner");
   const navButtons = document.querySelectorAll("[data-nav-link]");
 
   function activateNav(page) {
@@ -10,24 +10,32 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-function loadPage(page) {
-  if (!mainContent) return;
+  function loadPage(page) {
+    if (!mainContent) return;
 
-  fetch(`./pages/${page}.html`) // Ensure this path is correct
-    .then(response => {
-      if (!response.ok) throw new Error(`Halaman ${page} tidak ditemukan`);
-      return response.text();
-    })
-    .then(html => {
-      mainContent.innerHTML = html;
-      window.history.pushState({ page }, "", `#${page}`);
-      activateNav(page);
-    })
-    .catch(error => {
-      mainContent.innerHTML = `<p style="color: red;">Gagal memuat halaman: ${error.message}</p>`;
-      console.error(error);
-    });
-}
+    fetch(`./pages/${page}.html`)
+      .then(response => {
+        if (!response.ok) throw new Error(`Halaman ${page} tidak ditemukan`);
+        return response.text();
+      })
+      .then(html => {
+        mainContent.innerHTML = html;
+        window.history.pushState({ page }, "", `#${page}`);
+        activateNav(page);
+        Promise.resolve().then(() => {
+          if (typeof window.reInitAll === "function") {
+            window.reInitAll();
+          }
+        });
+      })
+      .catch(error => {
+        mainContent.innerHTML = `
+        <div class="error-container">
+        Gagal memuat halaman: ${error.message}
+        </div>`;
+        console.error(error);
+      });
+  }
 
   navButtons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -41,7 +49,6 @@ function loadPage(page) {
     loadPage(page);
   });
 
-  // Load halaman awal berdasarkan hash atau default about
   const initialPage = location.hash.substring(1) || "about";
   loadPage(initialPage);
 });

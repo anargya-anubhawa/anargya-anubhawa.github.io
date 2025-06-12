@@ -155,8 +155,18 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body { 
+  background: var(--smoky-black); 
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
 
+img {
+    pointer-events: none;
+    user-select: none;
+    }
 
 
 
@@ -1878,5 +1888,123 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
+
+  /* PAGE LOADER */
+
+  .error-container {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Bisa kamu sesuaikan */
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* CERTIFICATE & PRODUCT */
+
+.certificate-popup,
+.product-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.certificate-popup.show,
+.product-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.certificate-content,
+.product-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.certificate-content img,
+.certificate-content iframe
+.product-content img,
+.product-content iframe {
+  max-width: 100%;
+  max-height: 80vh;
+  border: none;
+}
+
+.btn-cert {
+  margin-top: 8px;
+  background-color: var(--orange-yellow-crayola);
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-product {
+  margin-top: 8px;
+  background-color: var(--orange-yellow-crayola);
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#productButtons button {
+  display: inline-block;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--orange-yellow-crayola); 
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#productButtons button:hover {
+  background-color: #fff1b8;
+  transform: scale(1.03);
+}
+
+#productButtons button:active {
+  background-color: #3730a3;
+  transform: scale(0.98);
+}
+
+/* Optional: prevent copying */
+.no-select {
+  user-select: none;
+}
 
 }
